@@ -1,4 +1,4 @@
-import SubCategory from "../models/subCategoryModel";
+import SubCategory from "../models/subCategoryModel.js";
 
 export const getAllSubCategory = async (req, res) =>{
     try {

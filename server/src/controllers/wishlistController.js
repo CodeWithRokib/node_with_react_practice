@@ -1,5 +1,5 @@
-import Wishlist from '../models/wishlistModel';
-import Product from '../models/productModel';
+import Wishlist from '../models/wishlistModel.js';
+import Product from '../models/productModel.js';
 
 export const addWishlist = async (req, res) =>{
     const userId = req.user.id;
