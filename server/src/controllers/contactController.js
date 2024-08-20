@@ -1,7 +1,7 @@
 import Contact from "../models/contactModel.js";
 
 export const createContact = async(req,res)=>{
-    const contact = new Contact({ name: req.body.name });
+    const contact = new Contact({ name: req.body.name, email: req.body.email, phone: req.body.phone, description: req.body.description });
     try {
         const savedContact = await contact.save();
         res.status(200).json({
