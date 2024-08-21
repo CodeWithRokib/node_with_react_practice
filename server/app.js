@@ -15,6 +15,7 @@ import appointmentRoutes from "./src/routes/appointmentRoute.js";
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 app.use(
   cors({
     credentials: true,
