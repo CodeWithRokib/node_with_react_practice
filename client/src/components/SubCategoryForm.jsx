@@ -1,20 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import axios from 'axios';
 
 const SubCategoryForm = () => {
     const [name, setName] = useState('');
     const [categoryId, setCategoryId] = useState('');
-    // const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [message, setMessage] = useState('');
 
-    // useEffect(() => {
-    //     const fetchCategories = async () => {
-    //         const res = await axios.get('http://localhost:4000/api/v1/category');
-    //         setCategories(res.data);
-    //     };
-    //     fetchCategories();
-    // }, []);
-
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const res = await axios.get('http://localhost:4000/api/v1/category');
+                console.log(res.data); // Check if data is fetched correctly
+                setCategories(res.data);
+            } catch (error) {
+                console.error("Error fetching categories:", error);
+            }
+        };
+        fetchCategories();
+    }, []);
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -37,14 +41,14 @@ const SubCategoryForm = () => {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="SubCategory Name"
                 />
-                {/* <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
+                <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
                     <option value="">Select Category</option>
-                    {categories.map(category => (
+                    {Array.isArray(categories) && categories?.map(category => (
                         <option key={category._id} value={category._id}>
                             {category.name}
                         </option>
                     ))}
-                </select> */}
+                </select>
                 <button type="submit">Create</button>
             </form>
             {message && <p>{message}</p>}
