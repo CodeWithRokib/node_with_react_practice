@@ -9,6 +9,7 @@ import cartRoutes from "./src/routes/cartRoute.js";
 import orderRoutes from "./src/routes/orderRoute.js";
 import wishlistRoutes from "./src/routes/wishlistRoute.js";
 import reviewRoutes from "./src/routes/reviewRoute.js";
+import doctorRoutes from "./src/routes/doctorRoute.js";
 
 const app = express();
 app.use(cors());
@@ -30,5 +31,6 @@ app.use("/api/v1", cartRoutes);
 app.use("/api/v1", wishlistRoutes);
 app.use("/api/v1", reviewRoutes);
 app.use("/api/v1", orderRoutes);
+app.use("/api/v1", doctorRoutes);
 
 export default app;
