@@ -1,0 +1,55 @@
+import { useState } from 'react';
+import axios from 'axios';
+
+const SubCategoryForm = () => {
+    const [name, setName] = useState('');
+    const [categoryId, setCategoryId] = useState('');
+    // const [categories, setCategories] = useState([]);
+    const [message, setMessage] = useState('');
+
+    // useEffect(() => {
+    //     const fetchCategories = async () => {
+    //         const res = await axios.get('http://localhost:4000/api/v1/category');
+    //         setCategories(res.data);
+    //     };
+    //     fetchCategories();
+    // }, []);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('http://localhost:4000/api/v1/subcategory', { name, categoryId });
+            setMessage(`SubCategory ${res.data.name} created successfully!`);
+            setName('');
+            setCategoryId('');
+        } catch (error) {
+            setMessage(`Error: ${error.response.data.message}`);
+        }
+    };
+
+    return (
+        <div>
+            <h1>Create SubCategory</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="SubCategory Name"
+                />
+                {/* <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
+                    <option value="">Select Category</option>
+                    {categories.map(category => (
+                        <option key={category._id} value={category._id}>
+                            {category.name}
+                        </option>
+                    ))}
+                </select> */}
+                <button type="submit">Create</button>
+            </form>
+            {message && <p>{message}</p>}
+        </div>
+    );
+};
+
+export default SubCategoryForm;

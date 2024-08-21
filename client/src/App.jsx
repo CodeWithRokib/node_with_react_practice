@@ -1,4 +1,5 @@
 import CategoryForm from "./components/CategoryForm"
+import SubCategoryForm from "./components/SubCategoryForm"
 
 function App() {
 
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
            <CategoryForm/>
+           <SubCategoryForm/>
     </>
   )
 }
