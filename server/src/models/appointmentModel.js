@@ -1,7 +1,12 @@
 import mongoose from "mongoose";
 
 const appointmentSchema = new mongoose.Schema({
-    doctor_name:{
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    name:{
         type:String,
         required:true
     },
@@ -9,7 +14,7 @@ const appointmentSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    patient_name:{
+    doctor_name:{
         type:String,
         required:true,
         trim:true,
@@ -18,7 +23,15 @@ const appointmentSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    designation:{
+    age:{
+        type:Number,
+        required:true,
+    },
+    date:{
+        type:Date,
+        required:true,
+    },
+    description:{
         type:String,
         required:true
     },
