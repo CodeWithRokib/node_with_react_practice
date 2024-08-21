@@ -10,6 +10,8 @@ import orderRoutes from "./src/routes/orderRoute.js";
 import wishlistRoutes from "./src/routes/wishlistRoute.js";
 import reviewRoutes from "./src/routes/reviewRoute.js";
 import doctorRoutes from "./src/routes/doctorRoute.js";
+import contactRoutes from "./src/routes/contactRoute.js";
+import appointmentRoutes from "./src/routes/appointmentRoute.js";
 
 const app = express();
 app.use(cors());
@@ -32,5 +34,7 @@ app.use("/api/v1", wishlistRoutes);
 app.use("/api/v1", reviewRoutes);
 app.use("/api/v1", orderRoutes);
 app.use("/api/v1", doctorRoutes);
+app.use("/api/v1", contactRoutes);
+app.use("/api/v1", appointmentRoutes);
 
 export default app;
