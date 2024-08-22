@@ -12,6 +12,7 @@ import reviewRoutes from "./src/routes/reviewRoute.js";
 import doctorRoutes from "./src/routes/doctorRoute.js";
 import contactRoutes from "./src/routes/contactRoute.js";
 import appointmentRoutes from "./src/routes/appointmentRoute.js";
+import departmentRoutes from "./src/routes/departmentRoute.js";
 
 const app = express();
 app.use(cors());
@@ -37,5 +38,6 @@ app.use("/api/v1", orderRoutes);
 app.use("/api/v1", doctorRoutes);
 app.use("/api/v1", contactRoutes);
 app.use("/api/v1", appointmentRoutes);
+app.use("/api/v1", departmentRoutes);
 
 export default app;
