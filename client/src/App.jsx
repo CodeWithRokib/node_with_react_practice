@@ -6,7 +6,6 @@ import ContactUpdate from './components/ContactUpdate';
 
 function App() {
 
-
   return (
     <>
       <Router>
