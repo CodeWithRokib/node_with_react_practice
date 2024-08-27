@@ -10,7 +10,7 @@ const CategoryForm = () => {
         try {
             const res = await axios.post('http://localhost:4000/api/v1/category', { name });
             setMessage(`Category ${res.data.name} created successfully!`);
-            setName('');
+            setName(''); 
         } catch (error) {
             setMessage(`Error: ${error.response.data.message}`);
         }
