@@ -4,6 +4,7 @@ import ContactForm from "./components/ContactForm"
 import SubCategoryForm from "./components/SubCategoryForm"
 import ContactUpdate from './components/ContactUpdate';
 import DepartmentForm from './components/DepartmentForm';
+import ContactList from './components/ContactList';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Router>
             <Routes>
                 <Route path="/" element={<CategoryForm />} />
+                <Route path="/contactlist" element={<ContactList />} />
                 <Route path="/subcategory" element={<SubCategoryForm />} />
                 <Route path="/department" element={<DepartmentForm />} />
                 <Route path="/add-contact" element={<ContactForm />} />
