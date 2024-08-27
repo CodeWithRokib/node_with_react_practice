@@ -11,7 +11,6 @@ const SubCategoryForm = () => {
     const fetchCategories = async () => {
       try {
         const res = await axios.get("http://localhost:4000/api/v1/category");
-        console.log(res.data); // Check if data is fetched correctly
         setCategories(res.data.categories);
       } catch (error) {
         console.error("Error fetching categories:", error);

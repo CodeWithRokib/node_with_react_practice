@@ -1,11 +1,9 @@
-import app from './app.js'
-import colors from 'colors';
-import dotenv from 'dotenv';
+import app from "./app.js";
+import colors from "colors";
+import dotenv from "dotenv";
 import dbConnect from "./src/config/db.js";
 
-
 dotenv.config({ path: "../server/src/config/.env" });
-
 
 app.listen(process.env.PORT, async () => {
   console.log(

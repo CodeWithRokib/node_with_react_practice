@@ -1,5 +1,7 @@
 import bodyParser from "body-parser";
 import cors from "cors";
+import path from 'path';
+import { fileURLToPath } from 'url';
 import express from "express";
 import userRoutes from "./src/routes/userRoute.js";
 import categoryRoutes from "./src/routes/categoryRoute.js";
@@ -14,6 +16,9 @@ import contactRoutes from "./src/routes/contactRoute.js";
 import appointmentRoutes from "./src/routes/appointmentRoute.js";
 import departmentRoutes from "./src/routes/departmentRoute.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -26,6 +31,10 @@ app.use(
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
 
 app.use("/api/v1", userRoutes);
 app.use("/api/v1", categoryRoutes);
