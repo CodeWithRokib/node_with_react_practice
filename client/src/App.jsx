@@ -1,15 +1,23 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CategoryForm from "./components/CategoryForm"
 import ContactForm from "./components/ContactForm"
 import SubCategoryForm from "./components/SubCategoryForm"
+import ContactUpdate from './components/ContactUpdate';
 
 function App() {
 
 
   return (
     <>
-           <CategoryForm/>
-           <SubCategoryForm/>
-           <ContactForm/>
+      <Router>
+            <Routes>
+                <Route path="/" element={<CategoryForm />} />
+                <Route path="/subcategory" element={<SubCategoryForm />} />
+                <Route path="/add-contact" element={<ContactForm />} />
+                <Route path="/update-contact/:id" element={<ContactUpdate />} />
+            </Routes>
+        </Router>
+           
     </>
   )
 }
