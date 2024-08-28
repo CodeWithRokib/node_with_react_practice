@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const DepartmentForm = () => {
-  const [departments, setDepartments] = useState([]); // Initialize as an empty array
+  const [departments, setDepartments] = useState([]); 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
@@ -13,7 +13,7 @@ const DepartmentForm = () => {
         const response = await axios.get(
           "http://localhost:4000/api/v1/departments"
         );
-        setDepartments(response.data.departments || []); // Fallback to empty array
+        setDepartments(response.data.departments); 
       } catch (error) {
         console.error("Error fetching departments:", error);
       }
