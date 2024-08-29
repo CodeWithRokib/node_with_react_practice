@@ -1,8 +1,10 @@
 import express from 'express';
-import { createAppointment } from '../controllers/appointmentController.js'; 
+import { createAppointment, updateAppointmentStatus } from '../controllers/appointmentController.js'; 
 
 const router = express.Router();
 
 router.post('/appointments', createAppointment);
+router.put('/appointments/:appointmentId/status', updateAppointmentStatus);
+
 
 export default router;
