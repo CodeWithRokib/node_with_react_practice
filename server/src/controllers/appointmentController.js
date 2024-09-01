@@ -67,7 +67,7 @@ export const updateAppointmentStatus = async (req, res) => {
     }
   };
   
-  export const getAppointmentController = async (req, res) => {
+  export const getAppointmentById = async (req, res) => {
     try {
       const appointments = await Appointment.findById(req.params.id);
       res.status(200).send({
