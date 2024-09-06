@@ -16,7 +16,7 @@ function App() {
             <Routes>
             <Route path="/toggle" element={<ToggleSwitch />} />
             <Route path="/clock" element={<DigitalClock />} />
-                <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<Home />} />
                     <Route path="users" element={<UserManagement />} />
